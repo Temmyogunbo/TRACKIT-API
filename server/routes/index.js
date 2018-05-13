@@ -47,7 +47,7 @@ export const routes = (request, response) => {
       switch (request.url) {
         case '/':
           response.statusCode = 200;
-          response.end('Welcome to trackit API');
+          response.end('Welcome to trackit API. Kindly read the documentation to get started.');
           break;
 
         case '/api/v1/issue':
