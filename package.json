@@ -1,0 +1,39 @@
+{
+  "name": "trackit-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node server/dist/server.js",
+    "build": "rm -rf server/dist && babel server/ --out-dir server/dist/ --copy-files",
+    "build:dev": "cross-env NODE_ENV=development babel-node server/server.js",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Temmyogunbo/TRACKIT-API.git"
+  },
+  "author": "Emmanuel Ogunbo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Temmyogunbo/TRACKIT-API/issues"
+  },
+  "homepage": "https://github.com/Temmyogunbo/TRACKIT-API#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "cross-env": "^5.1.5",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.17",
+    "validator": "^10.1.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
+  }
+}
