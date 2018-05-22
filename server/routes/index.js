@@ -3,6 +3,7 @@ import { parse } from 'querystring';
 // controllers
 import IssuesController from '../controllers/issuesController';
 import CommentsController from '../controllers/commentsController';
+import UsersController from '../controllers/usersController';
 
 const maxData = 2 * 1024 * 1024;
 
@@ -19,6 +20,7 @@ export const routes = (request, response) => {
           response.end('Entity too large');
         };
       });
+
       switch (request.url) {
         case '/api/v1/issue':
           request.on('end', () => {
@@ -33,6 +35,14 @@ export const routes = (request, response) => {
             parse(body);
             request.body = JSON.parse(body);
             CommentsController.addComment(request, response);
+          });
+          break;
+
+        case '/api/v1/users/auth':
+          request.on('end', () => {
+            parse(body);
+            request.body = JSON.parse(body);
+            UsersController.createUser(request, response);
           });
           break;
 

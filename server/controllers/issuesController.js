@@ -31,7 +31,7 @@ class IssuesController {
       description
     }, (error, result) => {
       if (error) {
-        response.statusCode = 400;
+        response.statusCode = 409;
         return response.end(JSON.stringify(error));
       };
       response.setHeader('Content-Length', Buffer.byteLength(JSON.stringify(result)));
@@ -54,7 +54,7 @@ static allIssues(request, response) {
       if (error) {
         response.statusCode = 400;
         return response.end(JSON.stringify(error));
-      }
+      };
 
       response.setHeader('Content-Length', Buffer.byteLength(JSON.stringify(result)));
       response.setHeader('Content-Type', 'application/json');

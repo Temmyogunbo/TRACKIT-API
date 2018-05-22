@@ -18,8 +18,9 @@ class Validate {
       if (entry[1].trim().length < 2) {
         errors[entry[0]] = `${entry[0]} cannot be less than 2 characters`;
       }
-    })
-
+      return entry[1].trim() < 2;
+    });
+    
     return {
       errors,
       isValid: !entries,
